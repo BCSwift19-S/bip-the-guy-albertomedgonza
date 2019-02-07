@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
-        print("Heyy! you just pressed image!")
+        print("Hey! you just pressed image!")
     }
 }
 
