@@ -17,7 +17,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    // Mark: functions
+    func animateImage() {
+        let bounds = self.imageToPunch.bounds
+        let shrinkValue: CGFloat = 60
+        
+    
+        // shrink our imageToPunch by 60 pixels
+        self.imageToPunch.bounds = CGRect(x: self.imageToPunch.bounds.origin.x + 60, y:self.imageToPunch.bounds.origin.y + 60, width: self.imageToPunch.bounds.size.width - shrinkValue, height: self.imageToPunch.bounds.size.height - shrinkValue)
+    
+        UIView.animate(withDuration: 0.25, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: [] , animations: { self.imageToPunch.bounds = bounds} , completion: nil)
+    }
 
+    
 
     @IBAction func libraryPressed(_ sender: UIButton) {
     }
@@ -27,7 +42,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
-        print("Hey! you just pressed image!")
+        animateImage()
+        
     }
 }
 
